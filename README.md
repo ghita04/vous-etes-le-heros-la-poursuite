@@ -9,4 +9,7 @@
 
 ## Diagramme 
 
+![](/assets/schema.png)
+
+
 
