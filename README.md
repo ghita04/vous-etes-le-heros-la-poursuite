@@ -9,6 +9,8 @@
 
 ## Diagramme 
 
+![Diagramme](/assets/schema.png)
+
 
 
 
