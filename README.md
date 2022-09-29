@@ -10,4 +10,4 @@
 
 ## Diagramme
 
-![](/assets/schema.png)
+![](/assets/schema.png " Diagramme ")
