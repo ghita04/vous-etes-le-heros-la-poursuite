@@ -266,7 +266,22 @@ let chapterObj = {
   },
 };
 
+document.querySelectorAll(".bouton");
 function goToChapter(chapterName) {
   console.log(chapterObj[chapterName]["subtitle"]);
   console.log(chapterObj[chapterName]["text"]);
+  console.log(chapterObj[chapterName]["img"]);
+  document.querySelector(".titre").innerHTML =
+    chapterObj[chapterName]["subtitle"];
+  document.querySelector(".texte").innerHTML = chapterObj[chapterName]["texte"];
+
+  for (let index = 0; index <= 2; index++) {
+    if (chapterOption[index] != undefined) {
+      button[index].innerHTML = chapterOption[index].text;
+      button[index].setAttribute("onclick", chapterOption[index].action);
+      button[index].classList.remove("hidden");
+    } else {
+      button[index].classList.add("hidden");
+    }
+  }
 }
