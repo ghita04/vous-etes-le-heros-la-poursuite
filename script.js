@@ -120,7 +120,7 @@ let chapterObj = {
   chapter1: {
     subtitle: "Le réveil",
     text: "Vous vous réveillez sur la banquette arrière de la voiture d'un inconnu. Vous ne vous souvenez de rien et vous vous sentez en danger. Que faite-vous ?",
-    img: "assets/images/station_service.jpg",
+    img: "assets/images/image_kidnapping.jpg",
     options: [
       {
         optionText: "Attendre",
@@ -128,11 +128,11 @@ let chapterObj = {
       },
       {
         optionText: "Ouvrir la porte",
-        action: 'goTochapter("ouvrir")',
+        action: 'goToChapter("ouvrir")',
       },
       {
         optionText: "Attaquer le chauffeur",
-        action: 'goToChapter("chapter1")',
+        action: 'goToChapter("attaquer")',
       },
     ],
   },
@@ -184,7 +184,7 @@ let chapterObj = {
       },
       {
         optionText: "Sauter dans la rivière",
-        action: 'goTochapter("riviere")',
+        action: 'goToChapter("riviere")',
       },
     ],
   },
@@ -223,7 +223,7 @@ let chapterObj = {
       },
       {
         optionText: "Se faire porter par le courant et miser sur la chance",
-        action: 'goTochapter("rienfaire")',
+        action: 'goToChapter("rienfaire")',
       },
     ],
   },
@@ -258,7 +258,7 @@ let chapterObj = {
       { optionText: "Se cacher", action: 'goToChapter("cacher")' },
       {
         optionText: "Rester immobile dans l'espoir que ce soit votre sauveur",
-        action: 'goTochapter("immobile")',
+        action: 'goToChapter("immobile")',
       },
     ],
   },
@@ -298,7 +298,7 @@ let chapterObj = {
       },
       {
         optionText: "Vous n'avez rien et vous décidez d'y aller à l'aveugle",
-        action: 'goTochapter("non")',
+        action: 'goToChapter("non")',
       },
     ],
   },
@@ -337,7 +337,7 @@ let chapterObj = {
       },
       {
         optionText: "Vous décidez de faire du pouce",
-        action: 'goTochapter("pouce")',
+        action: 'goToChapter("pouce")',
       },
     ],
   },
@@ -367,22 +367,25 @@ let chapterObj = {
 };
 
 function goToChapter(chapterName) {
-  button = document.querySelectorAll("a");
-  chapterOptions = chapterObj[chapterName]["options"];
   console.log(chapterObj[chapterName]["subtitle"]);
   console.log(chapterObj[chapterName]["text"]);
   console.log(chapterObj[chapterName]["img"]);
   document.querySelector(".titre").innerHTML =
     chapterObj[chapterName]["subtitle"];
   document.querySelector(".texte").innerHTML = chapterObj[chapterName]["text"];
+  document.querySelector("img").src = chapterObj[chapterName].img;
 
-  for (let index = 0; index <= 2; index++) {
-    if (chapterOptions[index] != undefined) {
-      button[index].innerHTML = chapterOptions[index]["optionText"];
-      button[index].setAttribute("onclick", chapterOptions[index]["action"]);
-      button[index].classList.remove("hidden");
-    } else {
-      button[index].classList.add("hidden");
-    }
+  document.querySelector(".arrButton").innerHTML = "";
+  for (i in chapterObj[chapterName].options) {
+    const btn = document.createElement("button");
+    btn.setAttribute("class", "bouton");
+    btn.setAttribute("onclick", chapterObj[chapterName].options[i].action);
+    const node = document.createTextNode(
+      chapterObj[chapterName].options[i].optionText
+    );
+    btn.appendChild(node);
+    const parent = document.querySelector(".arrButton");
+    parent.appendChild(btn);
   }
 }
+goToChapter("chapter1");
