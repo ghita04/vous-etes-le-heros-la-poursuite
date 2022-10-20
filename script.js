@@ -139,7 +139,7 @@ let chapterObj = {
 
   attendre: {
     subtitle: "Arrêt à la station-service",
-    text: "Le chauffeur inconnu s'arrête à une station-service assez isolée. Il jette un petit coup d'oeil vers vous à l'aide du rétroviseur pour vérifier que vous êtes toujours inconscient. Il sort son téléphone et débarre la porte afin d'aller passer un coup de fil à l'extérieur du véhicule. Vous en profitez pour vous évader en douceur, mais le bruit de vos clés ont attirés l'attention de l'inconnu et il se dirige vers vous. Vous vous enfuyez.",
+    text: "Le chauffeur s'arrête à une station-service. Il jette un petit coup d'oeil vers vous pour vérifier que vous êtes toujours inconscient. Il sort son téléphone et débarre la porte afin d'aller passer un coup de fil à l'extérieur du véhicule. Vous en profitez pour vous évader en douceur, mais le bruit de vos clés ont attirés l'attention de l'inconnu et il se dirige vers vous. Vous vous enfuyez.",
     img: "assets/images/station_service.jpg",
     options: [
       {
@@ -152,7 +152,7 @@ let chapterObj = {
   ouvrir: {
     subtitle: "Course contre la montre",
     text: "Vous attendez patiemment que la lumière vire au rouge pour ouvrir rapidement la porte passagère afin de vous précipiter dehors. L'inconnu s'en aperçoit et va se garer rapidement avant de vous poursuivre à la course.",
-    img: "assets/images/station_service.jpg",
+    img: "assets/images/course.jpg",
     options: [
       {
         optionText: "Continuer",
@@ -164,7 +164,7 @@ let chapterObj = {
   attaquer: {
     subtitle: "L'accident",
     text: "Sous l'adrénaline et la peur, vous décidez d'essayer d'étrangler l'inconnu à une lumière rouge afin de pouvoir vous enfuir. Malheureusement, l'inconnu appuie malencontreusement sur l'accélérateur sous le choc et fonce droit dans une borne électrique qui explose et qui, par le fait même, met la voiture en feu. L'inconnu et vous mourrez dans cet accident.",
-    img: "assets/images/station_service.jpg",
+    img: "assets/images/accident.jpg",
     options: [
       {
         optionText: "Recommencer",
@@ -176,7 +176,7 @@ let chapterObj = {
   chapter2: {
     subtitle: "Coincé entre deux chemins",
     text: "Vous êtes à bout de souffle et vous vous retrouvez à choisir entre deux chemins pour vous sauver. L'inconnu vous a presque rattrapé, il faut se décider vite ! Quel chemin choissisez-vous ?",
-    img: "assets/images/station_service.jpg",
+    img: "assets/images/chemin_separe.jpg",
     options: [
       {
         optionText: "S'enfoncer dans la forêt",
@@ -191,8 +191,8 @@ let chapterObj = {
 
   foret: {
     subtitle: "Promenade dans les bois",
-    text: "Vous décidez de vous enfoncer dans les profondeurs de la forêt avec espoir de semer l'inconnu. Malheureusement, sous l'empressement, vous vous enfargez sur une branche qui est tombée d'un arbre massif. Le malfaiteur vous rattrape. Vous tentez de vous débattre, mais il est beaucoup trop fort pour vous. Vous cessez de résister et l'inconnu vous soulève sur son épaule comme un sac à patate. Durant le trajet pour revenir vers la voiture, vous réussissez cependant à voler votre téléphone qu'il vous avait pris et le cacher.",
-    img: "assets/images/station_service.jpg",
+    text: "Vous décidez de vous enfoncer dans les profondeurs de la forêt pour semer l'inconnu. Malheureusement, vous vous enfargez sur une branche et le malfaiteur vous rattrape. Vous tentez de vous débattre, mais il est beaucoup trop fort pour vous. Vous cessez de résister et l'inconnu vous soulève sur son épaule comme un sac à patate. Durant le trajet pour revenir vers la voiture, vous réussissez cependant à voler votre téléphone qu'il vous avait pris et le cacher.",
+    img: "assets/images/foret.jpg",
     options: [
       {
         optionText: "Recommencer",
@@ -389,3 +389,24 @@ function goToChapter(chapterName) {
   }
 }
 goToChapter("chapter1");
+
+let telephone = false;
+
+function telephonetrue() {
+  telephone = true;
+  goToChapter("chapter5");
+}
+
+function telephoneStatus() {
+  if (telephone == true) {
+    goToChapter("oui");
+  }
+  if (telephone == false) {
+    goToChapter("non");
+  }
+}
+
+function telephonefalse() {
+  telephone = false;
+  goToChapter("non");
+}
