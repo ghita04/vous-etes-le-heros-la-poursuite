@@ -156,7 +156,7 @@ let chapterObj = {
     options: [
       {
         optionText: "Continuer",
-        action: 'goToChapter("chapter2")',
+        action: 'telephonetrue()',
       },
     ],
   },
@@ -289,16 +289,12 @@ let chapterObj = {
 
   chapter5: {
     subtitle: "Orientation en territoire inconnu",
-    text: "Il commence à se faire tard et vous avez hâte de rentrer chez vous après toutes ces mésaventures. Mais comment vous orienter dans cet endroit que vous ne connaissez pas ? Avez-vous un outil qui pourrait vous aider",
+    text: "Il commence à se faire tard et vous avez hâte de rentrer chez vous après toutes ces mésaventures. Mais comment vous orienter dans cet endroit que vous ne connaissez pas ? Avez-vous un téléphone qui pourrait vous aider",
     img: "assets/images/boussole.jpg",
     options: [
       {
-        optionText: "Avez-vous votre téléphone ?",
-        action: 'goToChapter("oui")',
-      },
-      {
-        optionText: "Vous décidez d'y aller à l'aveugle",
-        action: 'goToChapter("non")',
+        optionText: "Vérifier",
+        action: 'telephoneStatus()',
       },
     ],
   },
@@ -401,12 +397,7 @@ function telephoneStatus() {
   if (telephone == true) {
     goToChapter("oui");
   }
-  if (telephone == false) {
+  else (telephone == false) {
     goToChapter("non");
   }
-}
-
-function telephonefalse() {
-  telephone = false;
-  goToChapter("non");
 }
