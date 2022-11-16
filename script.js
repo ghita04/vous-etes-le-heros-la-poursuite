@@ -390,6 +390,8 @@ function goToChapter(chapterName) {
 } else {
    document.querySelector("img").src = `<img src="${chaptersObj[chapterName].img}"/>`;
 }
+  
+  localStorage.setItem("chaptersObj", "chapterName");
 goToChapter("chapter1");
 
 let telephone = false;
