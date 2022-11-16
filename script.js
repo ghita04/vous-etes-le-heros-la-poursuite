@@ -204,6 +204,7 @@ let chapterObj = {
     subtitle: "Un échappatoire rafraichissant",
     text: "Vous plongez dans la rivière et l'inconnu reste sur la berge à vous observer. Il ne vous suit plus et rebrousse chemin.",
     img: "assets/images/riviere.jpg",
+    video: "assets/images/vague.mp4",
     options: [
       {
         optionText: "Continuer",
@@ -383,6 +384,11 @@ function goToChapter(chapterName) {
     const parent = document.querySelector(".arrButton");
     parent.appendChild(btn);
   }
+  
+  if (chaptersObj[chapterName].video) {
+    document.querySelector("img").src = `<video src="${chaptersObj[chapterName].video}" muted autoplay loop></video>`;
+} else {
+   document.querySelector("img").src = `<img src="${chaptersObj[chapterName].img}"/>`;
 }
 goToChapter("chapter1");
 
