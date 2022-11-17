@@ -136,7 +136,7 @@ let chapterObj = {
     options: [
       {
         optionText: "Continuer",
-        action: 'telephonetrue()',
+        action: "telephonetrue()",
       },
     ],
   },
@@ -275,7 +275,7 @@ let chapterObj = {
     options: [
       {
         optionText: "Vérifier",
-        action: 'telephoneStatus()',
+        action: "telephoneStatus()",
       },
     ],
   },
@@ -350,7 +350,9 @@ function goToChapter(chapterName) {
   document.querySelector(".titre").innerHTML =
     chapterObj[chapterName]["subtitle"];
   document.querySelector(".texte").innerHTML = chapterObj[chapterName]["text"];
-  document.querySelector("img").src = `<img src="${chaptersObj[chapterName].img}"/>`;
+  document.querySelector(
+    "img"
+  ).src = `<img src="${chapterObj[chapterName].img}"/>`;
 
   document.querySelector(".arrButton").innerHTML = "";
   for (i in chapterObj[chapterName].options) {
@@ -364,27 +366,31 @@ function goToChapter(chapterName) {
     const parent = document.querySelector(".arrButton");
     parent.appendChild(btn);
   }
-  
+
   if (chaptersObj[chapterName].video) {
-    document.querySelector("img").src = `<video src="${chaptersObj[chapterName].video}" muted autoplay loop></video>`;
-} else {
-   document.querySelector("img").src = `<img src="${chaptersObj[chapterName].img}"/>`;
-}
-  
-  localStorage.setItem("chaptersObj", "chapterName");
-goToChapter("chapter1");
-
-let telephone = false;
-
-function telephonetrue() {
-  telephone = true;
-  goToChapter("chapter5");
-}
-
-function telephoneStatus() {
-  if (telephone == true) {
-    goToChapter("oui");
+    document.querySelector(
+      "img"
+    ).src = `<video src="${chapterObj[chapterName].video}" muted autoplay loop></video>`;
+  } else {
+    document.querySelector(
+      "img"
+    ).src = `<img src="${chapterObj[chapterName].img}"/>`;
   }
-  else (telephone == false) {
+
+  localStorage.setItem("chaptersObj", "chapterName");
+  goToChapter("chapter1");
+
+  let telephone = false;
+
+  function telephonetrue() {
+    telephone = true;
+    goToChapter("chapter5");
+  }
+
+  function telephoneStatus() {
+    if (telephone == true) {
+      goToChapter("oui");
+    } else telephone == false;
     goToChapter("non");
-  }};
+  }
+}
