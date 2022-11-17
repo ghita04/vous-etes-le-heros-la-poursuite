@@ -95,11 +95,12 @@ let pouce = {
 };
 Si le code bug encore encore et met undefined
 */
-if (localStorage.getElement() != null) {
+/*if (localStorage.getElement() != null) {
   telephone = localStorage.getItem();
 } else {
   telephone = false;
-}
+  Y'a un bug
+}*/
 let chapterObj = {
   chapter1: {
     subtitle: "Le réveil",
@@ -407,7 +408,9 @@ function telephonetrue() {
 function telephoneStatus() {
   if (telephone == true) {
     goToChapter("oui");
-  } else telephone == false;
-  goToChapter("non");
-  localStorage.setItem("telephone", telephone);
+  } else {
+    telephone == false;
+    goToChapter("non");
+    localStorage.setItem("telephone", telephone);
+  }
 }
