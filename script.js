@@ -137,7 +137,7 @@ let chapterObj = {
     options: [
       {
         optionText: "Continuer",
-        action: 'goToChapter("chapter2")',
+        action: "telephonetrue()",
       },
     ],
   },
@@ -185,6 +185,7 @@ let chapterObj = {
     subtitle: "Un échappatoire rafraichissant",
     text: "Vous plongez dans la rivière et l'inconnu reste sur la berge à vous observer. Il ne vous suit plus et rebrousse chemin.",
     img: "assets/images/riviere.jpg",
+    video: "assets/images/vague.mp4",
     video: "assets/images/vague.mp4",
     options: [
       {
