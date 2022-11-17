@@ -345,6 +345,8 @@ let chapterObj = {
 };
 
 function goToChapter(chapterName) {
+  localStorage.setItem("chapterObj", chapterName);
+
   const son = new Audio("assets/images/son_transition.mp3");
   son.play();
   son.volume = 0.2;
@@ -381,17 +383,20 @@ function goToChapter(chapterName) {
       ".image"
     ).innerHTML = `<img src="${chapterObj[chapterName].img}"/>`;
   }
-
-  localStorage.setItem("chaptersObj", "chapterName");
 }
 
-goToChapter("chapter1");
+if (localStorage.getItem("chapterObj")) {
+  goToChapter(localStorage.getItem("chapterObj"));
+} else {
+  goToChapter("chapter1");
+}
 
 let telephone = false;
 
 function telephonetrue() {
   telephone = true;
   goToChapter("chapter1");
+  localStorage.setItem("telephone", telephone);
 }
 
 function telephoneStatus() {
