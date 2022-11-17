@@ -133,6 +133,7 @@ let chapterObj = {
     subtitle: "Course contre la montre",
     text: "Vous attendez patiemment que la lumière vire au rouge pour ouvrir rapidement la porte passagère afin de vous précipiter dehors. L'inconnu s'en aperçoit et va se garer rapidement avant de vous poursuivre à la course.",
     img: "assets/images/course.jpg",
+    video: "assets/images/course_poursuite.mp4",
     options: [
       {
         optionText: "Continuer",
@@ -344,6 +345,9 @@ let chapterObj = {
 };
 
 function goToChapter(chapterName) {
+  const son = new Audio("assets/images/son_transition.mp3");
+  son.play();
+  son.volume = 0.2;
   console.log(chapterObj[chapterName]["subtitle"]);
   console.log(chapterObj[chapterName]["text"]);
   console.log(chapterObj[chapterName]["img"]);
@@ -380,7 +384,9 @@ function goToChapter(chapterName) {
 
   localStorage.setItem("chaptersObj", "chapterName");
 }
+
 goToChapter("chapter1");
+
 let telephone = false;
 
 function telephonetrue() {
