@@ -404,4 +404,5 @@ function telephoneStatus() {
     goToChapter("oui");
   } else telephone == false;
   goToChapter("non");
+  localStorage.setItem("telephone", telephone);
 }
