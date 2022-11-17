@@ -97,7 +97,9 @@ Si le code bug encore encore et met undefined
 */
 if (localStorage.getElement() != null) {
   telephone = localStorage.getItem();
-} else telephone = false;}
+} else {
+  telephone = false;
+}
 let chapterObj = {
   chapter1: {
     subtitle: "Le réveil",
