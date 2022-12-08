@@ -95,12 +95,25 @@ let pouce = {
 };
 Si le code bug encore encore et met undefined
 */
+
+let telephone = false;
+
 if (localStorage.getItem("telephone") != null) {
-  localStorage.getItem("telephone");
-} else {
-  telephone = false;
+  telephone = Boolean(localStorage.getItem("telephone"));
 }
 let chapterObj = {
+  pagedebut: {
+    subtitle: "Commencez la partie",
+    text: "Bonne chance !",
+    img: "assets/images/kidnapping.jpg",
+    options: [
+      {
+        optionText: "Commencer",
+        action: 'goToChapter("chapter1")',
+      },
+    ],
+  },
+
   chapter1: {
     subtitle: "Le réveil",
     text: "Vous vous réveillez sur la banquette arrière de la voiture d'un inconnu. Vous ne vous souvenez de rien à part de vagues souvenirs flous de la veille. Vous avez un mauvais présentiment et vous vous sentez soudainement en danger. Que faite-vous pour vous sortir de cette situation ?",
@@ -118,6 +131,10 @@ let chapterObj = {
         optionText: "Attaquer le chauffeur",
         action: 'goToChapter("attaquer")',
       },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
+      },
     ],
   },
 
@@ -130,6 +147,10 @@ let chapterObj = {
         optionText: "Continuer",
         action: 'goToChapter("chapter2")',
       },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
+      },
     ],
   },
 
@@ -141,7 +162,11 @@ let chapterObj = {
     options: [
       {
         optionText: "Continuer",
-        action: "telephonetrue()",
+        action: 'goToChapter("chapter2")',
+      },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
       },
     ],
   },
@@ -154,6 +179,10 @@ let chapterObj = {
       {
         optionText: "Recommencer",
         action: 'goToChapter("chapter1")',
+      },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
       },
     ],
   },
@@ -171,6 +200,10 @@ let chapterObj = {
         optionText: "Sauter dans la rivière",
         action: 'goToChapter("riviere")',
       },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
+      },
     ],
   },
 
@@ -181,7 +214,11 @@ let chapterObj = {
     options: [
       {
         optionText: "Recommencer",
-        action: "telephonetrue()",
+        action: "telephonefound()",
+      },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
       },
     ],
   },
@@ -190,11 +227,14 @@ let chapterObj = {
     text: "Vous plongez dans la rivière et l'inconnu reste sur la berge à vous observer. Il ne vous suit plus et rebrousse chemin.",
     img: "assets/images/riviere.jpg",
     video: "assets/images/vague.mp4",
-    video: "assets/images/vague.mp4",
     options: [
       {
         optionText: "Continuer",
         action: 'goToChapter("chapter3")',
+      },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
       },
     ],
   },
@@ -212,6 +252,10 @@ let chapterObj = {
         optionText: "Se faire porter par le courant",
         action: 'goToChapter("rienfaire")',
       },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
+      },
     ],
   },
   nager: {
@@ -223,6 +267,10 @@ let chapterObj = {
         optionText: "Recommencer",
         action: 'goToChapter("chapter1")',
       },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
+      },
     ],
   },
   rienfaire: {
@@ -233,6 +281,10 @@ let chapterObj = {
       {
         optionText: "Continuer",
         action: 'goToChapter("chapter4")',
+      },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
       },
     ],
   },
@@ -247,6 +299,10 @@ let chapterObj = {
         optionText: "Rester immobile",
         action: 'goToChapter("immobile")',
       },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
+      },
     ],
   },
 
@@ -258,6 +314,10 @@ let chapterObj = {
       {
         optionText: "Continuer",
         action: 'goToChapter("chapter5")',
+      },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
       },
     ],
   },
@@ -271,6 +331,10 @@ let chapterObj = {
         optionText: "Recommencer",
         action: 'goToChapter("chapter1")',
       },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
+      },
     ],
   },
 
@@ -282,6 +346,10 @@ let chapterObj = {
       {
         optionText: "Vérifier",
         action: "telephoneStatus()",
+      },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
       },
     ],
   },
@@ -295,6 +363,10 @@ let chapterObj = {
         optionText: "Continuer",
         action: 'goToChapter("chapter6")',
       },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
+      },
     ],
   },
 
@@ -306,6 +378,10 @@ let chapterObj = {
       {
         optionText: "Recommencer",
         action: 'goToChapter("chapter1")',
+      },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
       },
     ],
   },
@@ -322,6 +398,10 @@ let chapterObj = {
         optionText: "Vous décidez de faire du pouce",
         action: 'goToChapter("pouce")',
       },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
+      },
     ],
   },
 
@@ -334,6 +414,10 @@ let chapterObj = {
         optionText: "Réussite ! Retour au début",
         action: 'goToChapter("chapter1")',
       },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
+      },
     ],
   },
   pouce: {
@@ -345,16 +429,28 @@ let chapterObj = {
         optionText: "Recommencer",
         action: 'goToChapter("chapter1")',
       },
+      {
+        optionText: "Effacer ma partie",
+        action: "reset()",
+      },
     ],
   },
 };
 
+const son = new Audio("assets/images/son_transition.mp3");
 function goToChapter(chapterName) {
   localStorage.setItem("chapterObj", chapterName);
 
-  const son = new Audio("assets/images/son_transition.mp3");
+  let checkbox = document.querySelector(".boutoncheck");
+  checkbox.addEventListener("change", function () {
+    if (checkbox.checked) {
+      son.volume = 0.2;
+    } else {
+      son.volume = 0;
+    }
+  });
+  son.currentTime = 0;
   son.play();
-  son.volume = 0.2;
   console.log(chapterObj[chapterName]["subtitle"]);
   console.log(chapterObj[chapterName]["text"]);
   console.log(chapterObj[chapterName]["img"]);
@@ -388,6 +484,8 @@ function goToChapter(chapterName) {
       ".image"
     ).innerHTML = `<img src="${chapterObj[chapterName].img}"/>`;
   }
+  let body = document.querySelector("body");
+  body.setAttribute("class", [chapterName]);
 }
 
 if (localStorage.getItem("chapterObj")) {
@@ -396,9 +494,7 @@ if (localStorage.getItem("chapterObj")) {
   goToChapter("chapter1");
 }
 
-let telephone = false;
-
-function telephonetrue() {
+function telephonefound() {
   telephone = true;
   goToChapter("chapter1");
   localStorage.setItem("telephone", telephone);
@@ -412,4 +508,10 @@ function telephoneStatus() {
     goToChapter("non");
     localStorage.setItem("telephone", telephone);
   }
+}
+
+function reset() {
+  localStorage.clear();
+  telephonefound = false;
+  goToChapter("pagedebut");
 }
