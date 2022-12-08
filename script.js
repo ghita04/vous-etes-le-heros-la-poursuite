@@ -103,9 +103,9 @@ if (localStorage.getItem("telephone") != null) {
 }
 let chapterObj = {
   pagedebut: {
-    subtitle: "Commencez la partie",
+    subtitle: "Êtes-vous prêt à commencer la partie ? ",
     text: "Bonne chance !",
-    img: "assets/images/kidnapping.jpg",
+    img: "assets/images/image_kidnapping.jpg",
     options: [
       {
         optionText: "Commencer",
